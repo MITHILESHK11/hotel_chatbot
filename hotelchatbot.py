@@ -8,7 +8,11 @@ from nltk.tokenize import word_tokenize
 from difflib import SequenceMatcher
 import random
 
-nltk.download('punkt')
+# Ensure NLTK 'punkt' is downloaded only if not present
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 
 # Load intents
 file_path = os.path.abspath('newintents.json')
@@ -18,11 +22,10 @@ with open(file_path, 'r') as f:
 # Extract all patterns for suggestions
 all_patterns = [pattern for intent in intents for pattern in intent['patterns']]
 
-# Similarity-based intent matching
-def find_best_match(input_text):
+# Similarity-based intent matching with better threshold and response handling
+def find_best_match(input_text, threshold=0.6):
     best_match = None
     highest_similarity = 0.0
-    threshold = 0.6
 
     for intent in intents:
         for pattern in intent['patterns']:
@@ -33,7 +36,6 @@ def find_best_match(input_text):
 
     if highest_similarity >= threshold:
         return best_match
-
     return None
 
 # Chatbot logic with expanded matching
@@ -89,9 +91,13 @@ def main():
             st.text_area('Chatbot:', value=response, height=100, max_chars=None, key=f"chatbot_response_{counter}")
             timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            with open('chat_log.csv', 'a', newline='', encoding='utf-8') as csvfile:
-                csv_writer = csv.writer(csvfile)
-                csv_writer.writerow([final_input, response, timestamp])
+            # Append conversation log to CSV
+            try:
+                with open('chat_log.csv', 'a', newline='', encoding='utf-8') as csvfile:
+                    csv_writer = csv.writer(csvfile)
+                    csv_writer.writerow([final_input, response, timestamp])
+            except Exception as e:
+                st.error(f"Error logging conversation: {e}")
 
             # Display a goodbye message if the user says "goodbye"
             if final_input.lower() in ["goodbye", "bye"]:
@@ -103,7 +109,7 @@ def main():
         if os.path.exists('chat_log.csv'):
             with open('chat_log.csv', 'r', newline='', encoding='utf-8') as csvfile:
                 csv_reader = csv.reader(csvfile)
-                next(csv_reader)
+                next(csv_reader)  # Skip header row
                 for row in csv_reader:
                     st.write(f"**User**: {row[0]}\n**Chatbot**: {row[1]}\n*Time*: {row[2]}")
         else:
