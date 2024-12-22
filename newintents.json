@@ -1,0 +1,1043 @@
+[
+  {
+    "tag": "greeting",
+    "patterns": [
+      "Hello",
+      "Hi",
+      "Hey",
+      "Greetings",
+      "Good morning",
+      "Good afternoon",
+      "Good evening",
+      "Hi there",
+      "Hey there",
+      "What's up",
+      "Howdy",
+      "Yo",
+      "Good day",
+      "Good to see you",
+      "How's it going?",
+      "Hello, how are you?"
+    ],
+    "responses": [
+      "Hello! How can I help you today?",
+      "Hi there! What can I do for you?",
+      "Hey! What brings you here today?",
+      "Greetings! How may I assist you?",
+      "Good morning! What can I do for you?",
+      "Good afternoon! How can I assist you today?",
+      "Good evening! How may I help you?",
+      "Hey there! How can I be of service?",
+      "Howdy! How can I assist you today?",
+      "Yo! What can I do for you today?",
+      "Good day! How may I help you?",
+      "Good to see you! What can I assist you with today?",
+      "How's it going? How may I help you?",
+      "Hello! How are you doing today?"
+    ]
+  },
+  {
+    "tag": "greeting",
+    "patterns": [
+      "Hi, how are you?",
+      "Hello, how's it going?",
+      "Hey, how are you doing?",
+      "What's up?",
+      "How's everything?",
+      "How’s life?",
+      "How’s your day?",
+      "What's new?",
+      "How are you feeling?"
+    ],
+    "responses": [
+      "I'm doing great, thanks for asking! How can I assist you?",
+      "I'm doing well! How can I help you today?",
+      "I'm good, thank you! How can I be of service?",
+      "All is well! What can I do for you?",
+      "I'm fine, thank you! How can I assist you today?",
+      "I'm doing awesome! What can I help you with?",
+      "Feeling great! What do you need today?"
+    ]
+  },
+  {
+    "tag": "greeting",
+    "patterns": [
+      "Hey, how can I help?",
+      "Hello, can I assist you?",
+      "Hi, how can I serve you?",
+      "How can I assist?"
+    ],
+    "responses": [
+      "Hello! How can I assist you today?",
+      "Hi! What can I do for you?",
+      "Hey! How may I help you?",
+      "How can I serve you today?"
+    ]
+  },
+  {
+    "tag": "greeting",
+    "patterns": [
+      "Morning!",
+      "Afternoon!",
+      "Evening!",
+      "Good early morning!",
+      "Good late afternoon!"
+    ],
+    "responses": [
+      "Good morning! How can I help you?",
+      "Good afternoon! What can I do for you?",
+      "Good evening! How may I assist you?",
+      "Good early morning! How may I help?",
+      "Good late afternoon! How can I assist you today?"
+    ]
+  },
+  {
+    "tag": "greeting",
+    "patterns": [
+      "Hello, is anyone there?",
+      "Hi, is anybody available?",
+      "Hey, are you there?",
+      "Hello? Anybody there?"
+    ],
+    "responses": [
+      "Hello! I'm here to help you.",
+      "Hi! How can I assist you today?",
+      "Hey! What can I do for you?",
+      "Yes, I'm here! How can I help you?"
+    ]
+  },
+  {
+    "tag": "greeting",
+    "patterns": [
+      "How's everything going?",
+      "What's happening?",
+      "How's your day going?",
+      "How’s it going today?",
+      "What’s going on?"
+    ],
+    "responses": [
+      "Everything’s going great! How can I assist you?",
+      "All is good! What can I help with today?",
+      "Everything is fine, thank you for asking! How can I be of service?",
+      "It's going well! What can I do for you today?",
+      "Things are good! How can I help?"
+    ]
+  },
+  {
+    "tag": "greeting",
+    "patterns": [
+      "What’s up?",
+      "What's going on?",
+      "Yo, what's up?",
+      "Hey, what’s new?"
+    ],
+    "responses": [
+      "Not much! How can I assist you?",
+      "Hello! How may I help you?",
+      "Hey! What can I do for you today?",
+      "What’s up? How can I help?"
+    ]
+  },
+  {
+    "tag": "greeting",
+    "patterns": [
+      "Hi, what's new?",
+      "Hello, what’s going on?",
+      "Hey, how’s everything?",
+      "Hello, what's happening?"
+    ],
+    "responses": [
+      "Nothing much! How can I assist you?",
+      "All good! What can I do for you?",
+      "Everything is fine, thanks for asking! What can I help you with?",
+      "It’s going well! How can I be of service?"
+    ]
+  },
+  {
+    "tag": "greeting",
+    "patterns": [
+      "Hi everyone!",
+      "Hello everyone!",
+      "Hey everyone!"
+    ],
+    "responses": [
+      "Hello! How can I assist everyone today?",
+      "Hi there! What can I help with today?",
+      "Hey! How can I assist you today?"
+    ]
+  },
+  {
+    "tag": "greeting",
+    "patterns": [
+      "How are you doing today?",
+      "How are things going?",
+      "How have you been?",
+      "How are you feeling today?"
+    ],
+    "responses": [
+      "I am doing great, thank you for asking! How can I help?",
+      "I am doing well, thanks! How can I assist you today?",
+      "I am feeling good! What can I do for you?",
+      "I am great! How can I help you today?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "I'd like to order food",
+      "Can I order something to eat?",
+      "I want to order food",
+      "Order food",
+      "Can I get food?",
+      "Can I get a meal?",
+      "What food do you offer?"
+    ],
+    "responses": [
+      "Sure! What would you like to order?",
+      "Of course! What can I bring you?",
+      "Absolutely! What would you like to have?",
+      "I'd be happy to help! What are you in the mood for?",
+      "Sure! Our menu includes various dishes, what would you like?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "What’s on the menu?",
+      "Can you show me the menu?",
+      "Show me the menu",
+      "What do you have to eat?",
+      "Tell me your menu"
+    ],
+    "responses": [
+      "We have a wide variety of dishes. What type of food are you in the mood for?",
+      "Here’s our menu: [list menu items]. What would you like?",
+      "Our menu has some great options! What are you interested in?",
+      "Let me list some options: [menu items]. Anything catch your eye?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "Can I get breakfast in my room?",
+      "I'd like room service for breakfast",
+      "Order breakfast to my room",
+      "Can you bring breakfast to my room?"
+    ],
+    "responses": [
+      "Of course! What would you like for breakfast?",
+      "Sure! I'll arrange that for you. What do you want to have?",
+      "Absolutely! What items would you like for your breakfast?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "I'd like to reserve a table for dinner",
+      "Can I reserve a table for tonight?",
+      "Book a table for dinner",
+      "Reserve a table for me",
+      "Can I book a table for 2?"
+    ],
+    "responses": [
+      "Of course! For how many people and at what time?",
+      "Sure! How many people will be joining and what time?",
+      "I'd be happy to reserve a table. For how many and when?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "Can I get some water?",
+      "Bring me some water",
+      "I'd like water",
+      "Can I have a glass of water?"
+    ],
+    "responses": [
+      "Sure! I'll bring you a glass of water right away.",
+      "Of course! One glass of water coming right up.",
+      "Absolutely! A glass of water will be with you shortly."
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "I'd like a coffee",
+      "Can I get a coffee?",
+      "Bring me some coffee",
+      "Coffee, please"
+    ],
+    "responses": [
+      "Sure! Would you like black coffee, espresso, or something else?",
+      "Of course! How do you like your coffee?",
+      "I'll get your coffee ready. How would you like it?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "Can I have lunch delivered to my room?",
+      "I'd like lunch in my room",
+      "Order lunch for my room",
+      "Can I get lunch in my room?"
+    ],
+    "responses": [
+      "Of course! What would you like for lunch?",
+      "Sure! What would you like to have for lunch today?",
+      "I'd be happy to arrange that for you. What’s your lunch order?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "Can I see your wine list?",
+      "I'd like to see your wine menu",
+      "What wines do you have?",
+      "Can I get a wine list?"
+    ],
+    "responses": [
+      "Here’s our wine list: [list wines]. Which one would you like?",
+      "We have a variety of wines! Would you like a red, white, or sparkling?",
+      "Our wine selection includes: [list wines]. Anything you'd like?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "I'd like a dessert",
+      "Can I have a dessert?",
+      "Do you have any desserts?",
+      "Can I get something sweet?"
+    ],
+    "responses": [
+      "Sure! We have a variety of desserts. Would you like to try something sweet?",
+      "Of course! Here are our dessert options: [list desserts].",
+      "I'd be happy to bring you a dessert. What are you in the mood for?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "Can I order some snacks?",
+      "I'd like some snacks",
+      "Bring me some snacks",
+      "Do you have any snacks?"
+    ],
+    "responses": [
+      "Sure! We have snacks available. What would you like?",
+      "Absolutely! Would you prefer salty or sweet snacks?",
+      "We have a selection of snacks. What are you in the mood for?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "I'd like to cancel my dinner reservation",
+      "Cancel my table reservation",
+      "Please cancel my dinner booking",
+      "I want to cancel my reservation"
+    ],
+    "responses": [
+      "No problem! I’ve canceled your reservation.",
+      "I’ve successfully canceled your table booking.",
+      "Your reservation has been canceled."
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "Can I get a vegetarian meal?",
+      "Do you offer vegetarian options?",
+      "Do you have vegetarian dishes?",
+      "I’d like a vegetarian dish"
+    ],
+    "responses": [
+      "Sure! We have vegetarian options. What would you like?",
+      "Yes, we have a variety of vegetarian dishes. Anything in particular?",
+      "Absolutely! We can prepare a vegetarian meal for you. What would you prefer?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "Do you have any gluten-free options?",
+      "Can I get gluten-free food?",
+      "Do you offer gluten-free dishes?",
+      "Can I get something gluten-free?"
+    ],
+    "responses": [
+      "Yes, we have gluten-free options. What would you like?",
+      "Of course! We can offer gluten-free dishes. What would you like to have?",
+      "Absolutely! We have gluten-free items on the menu. What would you prefer?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "Can I get a takeaway?",
+      "I'd like to take my meal to go",
+      "Can I get my food to go?",
+      "I'd like a takeaway order"
+    ],
+    "responses": [
+      "Sure! I’ll prepare your order for takeaway. What would you like?",
+      "Of course! What meal would you like to take with you?",
+      "Absolutely! I'll pack it up for you. What can I prepare?"
+    ]
+  },
+  {
+    "tag": "dining_request",
+    "patterns": [
+      "Can I get a check for my meal?",
+      "Can I get the bill?",
+      "I’d like to pay for my food",
+      "Bring me the check"
+    ],
+    "responses": [
+      "Sure! I’ll bring the bill right away.",
+      "Of course! I’ll prepare your check.",
+      "Absolutely! I’ll get your bill prepared."
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "I'd like to order food",
+      "Can I order something to eat?",
+      "I want to order food",
+      "Order food",
+      "Can I get food?",
+      "Can I get a meal?"
+    ],
+    "responses": [
+      "Sure! What would you like to order?",
+      "Of course! What can I bring you?",
+      "Absolutely! What would you like to have?",
+      "I'd be happy to help! What are you in the mood for?",
+      "Sure! What can I prepare for you today?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "Can I get a coffee?",
+      "I'd like a coffee",
+      "Bring me a coffee",
+      "Coffee, please",
+      "Can I have a coffee?"
+    ],
+    "responses": [
+      "Sure! Would you like black coffee, espresso, or something else?",
+      "Of course! How do you like your coffee?",
+      "I'll get your coffee ready. How would you like it?",
+      "What kind of coffee would you prefer?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "I'd like a tea",
+      "Can I have a tea?",
+      "Bring me some tea",
+      "Tea, please",
+      "Can I get a hot tea?"
+    ],
+    "responses": [
+      "Of course! Would you prefer black, green, or herbal tea?",
+      "Absolutely! How would you like your tea?",
+      "Sure! I'll prepare your tea. Do you prefer it hot or iced?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "Can I get a soft drink?",
+      "I'd like a soda",
+      "Can I have a soft drink?",
+      "I'd like a cola",
+      "Bring me a soda"
+    ],
+    "responses": [
+      "Sure! What kind of soda would you like?",
+      "Of course! We have a variety of soft drinks. What’s your choice?",
+      "Absolutely! What flavor would you like?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "I'd like a cocktail",
+      "Can I get a cocktail?",
+      "Bring me a cocktail",
+      "I'd like a drink",
+      "Can I get an alcoholic beverage?"
+    ],
+    "responses": [
+      "Sure! What kind of cocktail would you like?",
+      "Of course! Would you like a classic cocktail or something special?",
+      "I'll make your cocktail. What would you prefer?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "Can I get a wine?",
+      "I'd like a glass of wine",
+      "Bring me a wine",
+      "Can I have a wine?",
+      "What wines do you offer?"
+    ],
+    "responses": [
+      "Sure! We have a variety of wines. Do you prefer red, white, or sparkling?",
+      "Of course! Here’s our wine list: [list wines]. What would you like?",
+      "Absolutely! What type of wine are you in the mood for?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "Can I get a dessert?",
+      "I'd like a dessert",
+      "Bring me a dessert",
+      "Do you have any desserts?",
+      "Can I get something sweet?"
+    ],
+    "responses": [
+      "Sure! We have a variety of desserts. Would you like to try something sweet?",
+      "Of course! Here are our dessert options: [list desserts].",
+      "I'd be happy to bring you a dessert. What are you in the mood for?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "Can I get snacks?",
+      "I'd like some snacks",
+      "Bring me some snacks",
+      "Do you have any snacks?",
+      "Can I order snacks?"
+    ],
+    "responses": [
+      "Sure! We have a selection of snacks. What would you like?",
+      "Absolutely! What kind of snacks would you prefer?",
+      "We have a variety of snacks available. What are you in the mood for?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "I'd like a sandwich",
+      "Can I get a sandwich?",
+      "Bring me a sandwich",
+      "Can I have a sandwich?",
+      "Do you have sandwiches?"
+    ],
+    "responses": [
+      "Sure! What type of sandwich would you like?",
+      "Of course! What filling would you prefer?",
+      "Absolutely! I'll prepare that for you. What kind of sandwich do you want?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "Can I get a pizza?",
+      "I'd like a pizza",
+      "Bring me a pizza",
+      "Can I have a pizza?",
+      "Do you have pizza?"
+    ],
+    "responses": [
+      "Sure! What toppings would you like on your pizza?",
+      "Of course! What kind of pizza would you prefer?",
+      "Absolutely! Let me know your favorite pizza toppings."
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "I'd like a burger",
+      "Can I get a burger?",
+      "Bring me a burger",
+      "Can I have a burger?",
+      "Do you have burgers?"
+    ],
+    "responses": [
+      "Sure! What type of burger would you like?",
+      "Of course! Would you prefer a beef, chicken, or veggie burger?",
+      "Absolutely! I'll get that ready for you. What toppings do you prefer?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "Can I order breakfast?",
+      "I'd like to order breakfast",
+      "Order breakfast",
+      "Can I get breakfast?",
+      "I'd like to have breakfast"
+    ],
+    "responses": [
+      "Sure! What would you like for breakfast?",
+      "Of course! What items would you like for breakfast?",
+      "Absolutely! We have some great breakfast options. What would you prefer?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "Can I order lunch?",
+      "I'd like to order lunch",
+      "Order lunch",
+      "Can I get lunch?",
+      "I'd like to have lunch"
+    ],
+    "responses": [
+      "Sure! What would you like for lunch?",
+      "Of course! What’s your lunch order?",
+      "Absolutely! We have some great lunch options. What would you like?"
+    ]
+  },
+  {
+    "tag": "food_beverage_order",
+    "patterns": [
+      "Can I get a smoothie?",
+      "I'd like a smoothie",
+      "Bring me a smoothie",
+      "Can I have a smoothie?"
+    ],
+    "responses": [
+      "Sure! What kind of smoothie would you like?",
+      "Of course! Would you prefer a fruit smoothie or a vegetable one?",
+      "Absolutely! I'll prepare your smoothie. What flavor do you prefer?"
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get a special request?",
+      "I have a special request",
+      "Can you fulfill a special request?",
+      "I need something special",
+      "Is it possible to make a special request?"
+    ],
+    "responses": [
+      "Of course! What special request do you have?",
+      "Absolutely! What can I do for you?",
+      "Sure! Please tell me your special request.",
+      "I'd be happy to assist with that. What do you need?"
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get a pillow?",
+      "I'd like an extra pillow",
+      "Bring me a pillow",
+      "Can you bring me a pillow?"
+    ],
+    "responses": [
+      "Sure! I'll bring you an extra pillow right away.",
+      "Of course! One pillow will be delivered to your room.",
+      "Absolutely! I’ll arrange that for you."
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get more towels?",
+      "I'd like extra towels",
+      "Bring me some towels",
+      "Can I have more towels?"
+    ],
+    "responses": [
+      "Sure! I'll bring you more towels right away.",
+      "Of course! I'll arrange for extra towels to be delivered.",
+      "Absolutely! I’ll have the towels sent to your room."
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get a fan?",
+      "I'd like a fan in my room",
+      "Bring me a fan",
+      "Can you bring me a fan?"
+    ],
+    "responses": [
+      "Sure! I'll have a fan brought to your room right away.",
+      "Of course! A fan will be delivered to your room shortly.",
+      "Absolutely! I'll arrange for the fan to be brought to you."
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get a late check-out?",
+      "I'd like a late check-out",
+      "Can I check out later?",
+      "I need a late check-out"
+    ],
+    "responses": [
+      "Sure! I’ll arrange a late check-out for you. What time would be convenient?",
+      "Of course! I’ll confirm a late check-out for you.",
+      "Absolutely! Let me know the time you’d prefer for check-out."
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get a wake-up call?",
+      "I need a wake-up call",
+      "Can you set a wake-up call for me?",
+      "I’d like a wake-up call at [time]"
+    ],
+    "responses": [
+      "Sure! I'll set up a wake-up call for you at [time].",
+      "Of course! Your wake-up call will be scheduled at [time].",
+      "Absolutely! A wake-up call will be made at [time]."
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get a room with a view?",
+      "I'd like a room with a view",
+      "Can I have a room with a nice view?",
+      "Is it possible to get a room with a view?"
+    ],
+    "responses": [
+      "Sure! I'll check availability for a room with a view.",
+      "Of course! I’ll arrange that for you, let me check availability.",
+      "Absolutely! I will confirm if a room with a view is available."
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get a quiet room?",
+      "I'd like a quiet room",
+      "Can I have a room away from the noise?",
+      "I need a quiet room"
+    ],
+    "responses": [
+      "Sure! I'll make sure to get you a quiet room.",
+      "Of course! Let me arrange a room away from the noise.",
+      "Absolutely! I’ll assign you a room in a quiet area of the hotel."
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get a shower cap?",
+      "I'd like a shower cap",
+      "Can you bring me a shower cap?",
+      "Do you have shower caps?"
+    ],
+    "responses": [
+      "Sure! I’ll bring you a shower cap right away.",
+      "Of course! I’ll have a shower cap delivered to your room.",
+      "Absolutely! I’ll make sure a shower cap is brought to you."
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I have extra blankets?",
+      "I'd like more blankets",
+      "Bring me more blankets",
+      "Can you bring me some extra blankets?"
+    ],
+    "responses": [
+      "Sure! I'll bring you extra blankets right away.",
+      "Of course! I’ll arrange for more blankets to be delivered.",
+      "Absolutely! I’ll make sure you have extra blankets."
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get some toiletries?",
+      "I'd like some toiletries",
+      "Bring me toiletries",
+      "Do you have toiletries?"
+    ],
+    "responses": [
+      "Sure! I’ll bring toiletries to your room right away.",
+      "Of course! I'll arrange for the necessary toiletries.",
+      "Absolutely! I’ll have toiletries delivered to your room."
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get some flowers?",
+      "I'd like to order flowers",
+      "Can you bring me flowers?",
+      "Do you offer flowers?"
+    ],
+    "responses": [
+      "Sure! I'll arrange for flowers to be delivered to your room.",
+      "Of course! Let me know what type of flowers you'd like.",
+      "Absolutely! I'll have flowers sent to your room shortly."
+    ]
+  },
+  {
+    "tag": "special_request",
+    "patterns": [
+      "Can I get a baby crib?",
+      "I'd like a crib for my baby",
+      "Can you bring me a baby crib?",
+      "Do you have baby cribs?"
+    ],
+    "responses": [
+      "Sure! I'll arrange for a crib to be brought to your room.",
+      "Of course! A crib will be delivered to your room shortly.",
+      "Absolutely! Let me take care of that for you."
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "What time is breakfast served?",
+      "When is breakfast available?",
+      "What time does breakfast start?",
+      "What time is breakfast?"
+    ],
+    "responses": [
+      "Breakfast is served from [start time] to [end time].",
+      "Our breakfast hours are [start time] to [end time].",
+      "Breakfast is available from [start time]. What time would you like to come?"
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "What time is check-out?",
+      "When do I need to check out?",
+      "What time do I need to check out by?",
+      "When is the latest check-out time?"
+    ],
+    "responses": [
+      "Check-out is by [time].",
+      "Our check-out time is [time].",
+      "You can check-out until [time]."
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "Do you have a pool?",
+      "Is there a swimming pool?",
+      "Can I use the pool?",
+      "Is the pool open?"
+    ],
+    "responses": [
+      "Yes, we have a pool! It’s open from [start time] to [end time].",
+      "We do have a swimming pool. You can use it from [start time] to [end time].",
+      "Yes, the pool is open! You can enjoy it from [start time] to [end time]."
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "Do you offer free Wi-Fi?",
+      "Is Wi-Fi available?",
+      "Can I use Wi-Fi here?",
+      "How do I connect to Wi-Fi?"
+    ],
+    "responses": [
+      "Yes, we offer free Wi-Fi. You can connect using the network [network name].",
+      "We have free Wi-Fi available. The network name is [network name], and the password is [password].",
+      "Yes, Wi-Fi is available throughout the hotel. Connect to [network name]."
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "What is your cancellation policy?",
+      "How do I cancel my reservation?",
+      "Can I cancel my booking?",
+      "What is the policy for canceling a reservation?"
+    ],
+    "responses": [
+      "You can cancel your reservation up to [time] before your arrival without any charges.",
+      "Our cancellation policy allows you to cancel for free up to [time] before check-in.",
+      "You may cancel your reservation without a fee if done by [time]. After that, there may be a cancellation fee."
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "What amenities do you offer?",
+      "Can you tell me about the amenities?",
+      "What facilities do you have?",
+      "What services are available?"
+    ],
+    "responses": [
+      "We offer a range of amenities including [list amenities like gym, pool, spa, etc.].",
+      "Our hotel features [list facilities], along with [other services].",
+      "We have a variety of services, such as [list amenities]."
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "Is there a gym?",
+      "Do you have a fitness center?",
+      "Can I use the gym?",
+      "Is the gym open?"
+    ],
+    "responses": [
+      "Yes, we have a gym that is open from [start time] to [end time].",
+      "Our fitness center is open daily from [start time] to [end time].",
+      "Yes, the gym is available for guests. It’s open from [start time] to [end time]."
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "Do you have a spa?",
+      "Can I book a spa treatment?",
+      "Is there a spa in the hotel?",
+      "What spa services do you offer?"
+    ],
+    "responses": [
+      "Yes, we have a spa offering a variety of treatments. Would you like to book an appointment?",
+      "Our hotel features a spa. You can book treatments at the front desk or online.",
+      "Yes, we offer spa services like [list treatments]. Would you like to schedule one?"
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "Where can I park?",
+      "Do you have parking available?",
+      "Where is the parking lot?",
+      "Can I park my car here?"
+    ],
+    "responses": [
+      "Yes, we have parking available. You can park in [location].",
+      "There is parking available at [location]. It’s [free/paid] parking.",
+      "Parking is available at [location]. Let me know if you need any assistance."
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "What is the weather like?",
+      "Is it raining today?",
+      "What's the weather forecast?",
+      "Is it sunny outside?"
+    ],
+    "responses": [
+      "The current weather is [weather condition]. Would you like more details?",
+      "It’s [weather condition] right now. Would you like to know the forecast for the day?",
+      "Today’s weather is [weather condition]. Let me know if you need an umbrella or something else."
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "Do you offer airport shuttle?",
+      "Is there an airport transfer service?",
+      "Can I get an airport shuttle?",
+      "Do you have transportation to the airport?"
+    ],
+    "responses": [
+      "Yes, we offer an airport shuttle service. Let me know your flight details and I'll arrange it.",
+      "We have an airport shuttle service available. Please share your arrival time and I’ll reserve a seat.",
+      "Yes, we offer transportation to the airport. I can arrange it for you, just let me know when."
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "Can I request an early check-in?",
+      "Is early check-in available?",
+      "Can I check in early?",
+      "What time can I check in?"
+    ],
+    "responses": [
+      "Early check-in is subject to availability. Let me check if it’s possible for you.",
+      "I’ll check if an early check-in is available. Please give me a moment.",
+      "Our standard check-in time is [time]. Early check-in may be possible depending on availability."
+    ]
+  },
+  {
+    "tag": "information_request",
+    "patterns": [
+      "Is there a restaurant in the hotel?",
+      "Can I dine at the hotel?",
+      "Where is the hotel restaurant?",
+      "Do you have a dining option here?"
+    ],
+    "responses": [
+      "Yes, we have a restaurant that serves [breakfast/lunch/dinner]. It’s located on [floor/area].",
+      "Our hotel has a restaurant offering a variety of dishes. Would you like to know the menu?",
+      "Yes, we have a restaurant on-site. Would you like to make a reservation?"
+    ]
+  },
+  {
+    "tag": "goodbye",
+    "patterns": [
+      "Goodbye",
+      "See you later",
+      "Bye",
+      "Take care",
+      "Farewell",
+      "See you soon",
+      "I'm leaving now"
+    ],
+    "responses": [
+      "Goodbye! Have a great day!",
+      "Take care! We hope to see you again soon!",
+      "Farewell! Have a wonderful day ahead!",
+      "See you soon! Have a great time!",
+      "Goodbye! Feel free to reach out anytime."
+    ]
+  },
+  {
+    "tag": "goodbye",
+    "patterns": [
+      "Thank you, I'm done",
+      "That will be all, thank you",
+      "No further questions, goodbye",
+      "Thanks for the help"
+    ],
+    "responses": [
+      "You're welcome! If you need anything else, feel free to ask. Goodbye!",
+      "It was my pleasure! Have a great day ahead!",
+      "Thank you for your time! Take care and goodbye!",
+      "Glad I could help! If you need anything else, just let me know. Goodbye!"
+    ]
+  },
+  {
+    "tag": "goodbye",
+    "patterns": [
+      "I'm all set, goodbye",
+      "I am done for now",
+      "That’s all, thanks",
+      "I’ve finished here"
+    ],
+    "responses": [
+      "Thank you! Have a great rest of your day!",
+      "Goodbye, and take care!",
+      "Thanks for chatting! Until next time!",
+      "Take care! Have a wonderful day ahead!"
+    ]
+  },
+  {
+    "tag": "goodbye",
+    "patterns": [
+      "It was nice talking to you",
+      "I enjoyed our conversation",
+      "Thanks for the help, goodbye"
+    ],
+    "responses": [
+      "It was great talking to you too! Have a lovely day!",
+      "Glad I could help! Goodbye, and take care!",
+      "It was a pleasure! Feel free to reach out anytime. Goodbye!"
+    ]
+  }
+]
