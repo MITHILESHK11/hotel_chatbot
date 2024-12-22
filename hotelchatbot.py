@@ -14,7 +14,7 @@ try:
 except LookupError:
     nltk.download('punkt')
 
-# Load intents
+# Load intents from JSON file
 file_path = os.path.abspath('newintents.json')
 with open(file_path, 'r') as f:
     intents = json.load(f)
@@ -62,18 +62,24 @@ counter = 0
 # Streamlit app
 def main():
     global counter
+    st.set_page_config(page_title="5-Star Hotel Chatbot", page_icon="🏨", layout="wide")
     st.title("5-Star Hotel Chatbot")
+    st.image("start5hotel.jpg", width=200)  # Replace with your image path
 
-    menu = ['Home', 'Conversation History', 'About']
+    menu = ['Home', 'Conversation History', 'About', 'Feedback']
     choice = st.sidebar.selectbox('Menu', menu)
 
     if choice == 'Home':
         st.write("Welcome to our Hotel Concierge Chatbot. How may I assist you today?")
 
+        # Check if chat log exists, create if not
         if not os.path.exists('chat_log.csv'):
-            with open('chat_log.csv', 'w', newline='', encoding='utf-8') as csvfile:
-                csv_writer = csv.writer(csvfile)
-                csv_writer.writerow(['User Input', 'Chatbot Response', 'Timestamp'])
+            try:
+                with open('chat_log.csv', 'w', newline='', encoding='utf-8') as csvfile:
+                    csv_writer = csv.writer(csvfile)
+                    csv_writer.writerow(['User Input', 'Chatbot Response', 'Timestamp'])
+            except Exception as e:
+                st.error(f"Error creating chat log file: {e}")
 
         counter += 1
         
@@ -126,6 +132,16 @@ def main():
 
         Built with NLP and enhanced pattern matching, this chatbot ensures a seamless guest experience.
         """)
+
+    elif choice == 'Feedback':
+        st.header("Feedback")
+        feedback = st.text_area("Please provide your feedback here:")
+        if st.button("Submit Feedback"):
+            if feedback:
+                st.success("Thank you for your feedback!")
+                # Here you can add code to save feedback to a file or database
+            else:
+                st.error("Please enter your feedback before submitting.")
 
 if __name__ == "__main__":
     main()
