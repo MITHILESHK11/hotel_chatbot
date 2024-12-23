@@ -134,14 +134,25 @@ def main():
         """)
 
     elif choice == 'Feedback':
-        st.header("Feedback")
-        feedback = st.text_area("Please provide your feedback here:")
-        if st.button("Submit Feedback"):
-            if feedback:
-                st.success("Thank you for your feedback!")
-                # Here you can add code to save feedback to a file or database
-            else:
-                st.error("Please enter your feedback before submitting.")
+    st.header("Feedback")
+    feedback = st.text_area("Please provide your feedback here:")
+    if st.button("Submit Feedback"):
+        if feedback:
+            # Save feedback to a CSV file
+            feedback_file = 'feedback.csv'
+            timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            if not os.path.exists(feedback_file):
+                with open(feedback_file, 'w', newline='', encoding='utf-8') as csvfile:
+                    csv_writer = csv.writer(csvfile)
+                    csv_writer.writerow(['Feedback', 'Timestamp'])
+            
+            with open(feedback_file, 'a', newline='', encoding='utf-8') as csvfile:
+                csv_writer = csv.writer(csvfile)
+                csv_writer.writerow([feedback, timestamp])
+            
+            st.success("Thank you for your feedback!")
+        else:
+            st.error("Please enter your feedback before submitting.")
 
 if __name__ == "__main__":
     main()
