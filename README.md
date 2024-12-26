@@ -72,7 +72,3 @@ Built with NLP and enhanced pattern matching, this chatbot ensures a seamless gu
 ## Contributions
 
 Feel free to contribute by reporting issues, submitting pull requests, or suggesting improvements!
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
