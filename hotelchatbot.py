@@ -4,7 +4,7 @@ import random
 import nltk
 import datetime
 import streamlit as st
-
+import scikit-learn
 import difflib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
