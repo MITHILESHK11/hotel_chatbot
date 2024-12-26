@@ -57,13 +57,24 @@ def chatbot(input_text):
 
     return "I'm sorry, I didn't understand that. Can you please rephrase?"
 
-# Function to push updates to GitHub
+# Function to push updates to GitHub using SSH
 def push_to_git(file_path, commit_message):
     try:
+        # Add the file to staging
         subprocess.run(["git", "add", file_path], check=True)
+
+        # Check if there are changes to commit
+        result = subprocess.run(["git", "diff", "--cached", "--quiet"], check=False)
+        if result.returncode == 0:  # No changes to commit
+            st.info(f"No changes detected in {file_path}. Skipping commit.")
+            return
+
+        # Commit the changes
         subprocess.run(["git", "commit", "-m", commit_message], check=True)
+
+        # Push to the remote repository
         subprocess.run(["git", "push"], check=True)
-        st.success(f"Changes to {file_path} have been pushed to GitHub.")
+        st.success(f"Changes to {file_path} have been pushed to GitHub successfully.")
     except subprocess.CalledProcessError as e:
         st.error(f"An error occurred while pushing {file_path} to GitHub: {e}")
 
