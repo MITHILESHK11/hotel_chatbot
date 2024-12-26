@@ -98,7 +98,7 @@ def main():
         else:
             st.write("No conversation history found.")
 
-     elif choice == 'About':
+    elif choice == 'About':
         st.subheader("About the 5-Star Hotel Chatbot")
         st.write("""
         Welcome to the 5-Star Hotel Chatbot! This chatbot is designed to act as a virtual concierge for guests at a luxurious hotel. It aims to provide timely, efficient, and accurate assistance to guests, enhancing their experience throughout their stay.
