@@ -1,5 +1,6 @@
 import json
 import os
+import subprocess
 import streamlit as st
 import datetime
 import csv
@@ -56,6 +57,16 @@ def chatbot(input_text):
 
     return "I'm sorry, I didn't understand that. Can you please rephrase?"
 
+# Function to push updates to GitHub
+def push_to_git(file_path, commit_message):
+    try:
+        subprocess.run(["git", "add", file_path], check=True)
+        subprocess.run(["git", "commit", "-m", commit_message], check=True)
+        subprocess.run(["git", "push"], check=True)
+        st.success(f"Changes to {file_path} have been pushed to GitHub.")
+    except subprocess.CalledProcessError as e:
+        st.error(f"An error occurred while pushing {file_path} to GitHub: {e}")
+
 # Global counter for unique input keys
 counter = 0
 
@@ -73,9 +84,10 @@ def main():
         st.write("Welcome to our Hotel Concierge Chatbot. How may I assist you today?")
 
         # Check if chat log exists, create if not
-        if not os.path.exists('chat_log.csv'):
+        chat_log_file = 'chat_log.csv'
+        if not os.path.exists(chat_log_file):
             try:
-                with open('chat_log.csv', 'w', newline='', encoding='utf-8') as csvfile:
+                with open(chat_log_file, 'w', newline='', encoding='utf-8') as csvfile:
                     csv_writer = csv.writer(csvfile)
                     csv_writer.writerow(['User Input', 'Chatbot Response', 'Timestamp'])
             except Exception as e:
@@ -99,11 +111,13 @@ def main():
 
             # Append conversation log to CSV
             try:
-                with open('chat_log.csv', 'a', newline='', encoding='utf-8') as csvfile:
+                with open(chat_log_file, 'a', newline='', encoding='utf-8') as csvfile:
                     csv_writer = csv.writer(csvfile)
                     csv_writer.writerow([final_input, response, timestamp])
+                # Push updates to GitHub
+                push_to_git(chat_log_file, "Update chat log with new conversation")
             except Exception as e:
-                st.error(f"Error logging conversation: {e}")
+                st.error(f"Error logging conversation or pushing to Git: {e}")
 
             # Display a goodbye message if the user says "goodbye"
             if final_input.lower() in ["goodbye", "bye"]:
@@ -112,8 +126,8 @@ def main():
 
     elif choice == 'Conversation History':
         st.header("Conversation History")
-        if os.path.exists('chat_log.csv'):
-            with open('chat_log.csv', 'r', newline='', encoding='utf-8') as csvfile:
+        if os.path.exists(chat_log_file):
+            with open(chat_log_file, 'r', newline='', encoding='utf-8') as csvfile:
                 csv_reader = csv.reader(csvfile)
                 next(csv_reader)  # Skip header row
                 for row in csv_reader:
@@ -137,20 +151,23 @@ def main():
         st.header("Feedback")
         feedback = st.text_area("Please provide your feedback here:")
         if st.button("Submit Feedback"):
+            feedback_file = 'feedback.csv'
             if feedback:
-                # Save feedback to a CSV file
-                feedback_file = 'feedback.csv'
                 timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                if not os.path.exists(feedback_file):
-                    with open(feedback_file, 'w', newline='', encoding='utf-8') as csvfile:
+                try:
+                    # Save feedback to a CSV file
+                    if not os.path.exists(feedback_file):
+                        with open(feedback_file, 'w', newline='', encoding='utf-8') as csvfile:
+                            csv_writer = csv.writer(csvfile)
+                            csv_writer.writerow(['Feedback', 'Timestamp'])
+                    with open(feedback_file, 'a', newline='', encoding='utf-8') as csvfile:
                         csv_writer = csv.writer(csvfile)
-                        csv_writer.writerow(['Feedback', 'Timestamp'])
-
-                with open(feedback_file, 'a', newline='', encoding='utf-8') as csvfile:
-                    csv_writer = csv.writer(csvfile)
-                    csv_writer.writerow([feedback, timestamp])
-                
-                st.success("Thank you for your feedback!")
+                        csv_writer.writerow([feedback, timestamp])
+                    # Push updates to GitHub
+                    push_to_git(feedback_file, "Update feedback with new entry")
+                    st.success("Thank you for your feedback!")
+                except Exception as e:
+                    st.error(f"Error saving feedback or pushing to Git: {e}")
             else:
                 st.error("Please enter your feedback before submitting.")
 
