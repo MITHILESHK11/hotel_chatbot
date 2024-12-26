@@ -9,6 +9,8 @@ from email.mime.multipart import MIMEMultipart
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from google.auth.transport.requests import Request
+from nltk.tokenize import word_tokenize
+
 
 # Load intents from JSON file
 file_path = os.path.abspath('newintents.json')
