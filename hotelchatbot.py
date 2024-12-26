@@ -1,9 +1,7 @@
 import json
 import os
-import subprocess
 import streamlit as st
 import datetime
-import csv
 import nltk
 from nltk.tokenize import word_tokenize
 from difflib import SequenceMatcher
@@ -57,78 +55,42 @@ def chatbot(input_text):
 
     return "I'm sorry, I didn't understand that. Can you please rephrase?"
 
-# Function to push updates to GitHub using SSH
-def push_to_git(file_path, commit_message):
-    try:
-        # Add the file to staging
-        subprocess.run(["git", "add", file_path], check=True)
-
-        # Check if there are changes to commit
-        result = subprocess.run(["git", "diff", "--cached", "--quiet"], check=False)
-        if result.returncode == 0:  # No changes to commit
-            st.info(f"No changes detected in {file_path}. Skipping commit.")
-            return
-
-        # Commit the changes
-        subprocess.run(["git", "commit", "-m", commit_message], check=True)
-
-        # Push to the remote repository
-        subprocess.run(["git", "push"], check=True)
-        st.success(f"Changes to {file_path} have been pushed to GitHub successfully.")
-    except subprocess.CalledProcessError as e:
-        st.error(f"An error occurred while pushing {file_path} to GitHub: {e}")
-
-# Global counter for unique input keys
-counter = 0
-
 # Streamlit app
 def main():
-    global counter
     st.set_page_config(page_title="5-Star Hotel Chatbot", page_icon="🏨", layout="wide")
     st.title("5-Star Hotel Chatbot")
     st.image("start5hotel.jpg", width=200)  # Replace with your image path
+
+    # Initialize session state for conversation history
+    if "conversation" not in st.session_state:
+        st.session_state["conversation"] = []
 
     menu = ['Home', 'Conversation History', 'About', 'Feedback']
     choice = st.sidebar.selectbox('Menu', menu)
 
     if choice == 'Home':
         st.write("Welcome to our Hotel Concierge Chatbot. How may I assist you today?")
-
-        # Check if chat log exists, create if not
-        chat_log_file = 'chat_log.csv'
-        if not os.path.exists(chat_log_file):
-            try:
-                with open(chat_log_file, 'w', newline='', encoding='utf-8') as csvfile:
-                    csv_writer = csv.writer(csvfile)
-                    csv_writer.writerow(['User Input', 'Chatbot Response', 'Timestamp'])
-            except Exception as e:
-                st.error(f"Error creating chat log file: {e}")
-
-        counter += 1
         
         # Suggest questions to the user
         suggestion = st.selectbox("Suggestions (optional):", ["Type your own"] + all_patterns)
         
         # Allow free text input
-        user_input = st.text_input("You:", key=f"user_input_{counter}")
-        
+        user_input = st.text_input("You:")
+
         # Use the suggestion if no free text is entered
         final_input = user_input or (suggestion if suggestion != "Type your own" else "")
 
         if final_input:
             response = chatbot(final_input)
-            st.text_area('Chatbot:', value=response, height=100, max_chars=None, key=f"chatbot_response_{counter}")
+            st.text_area('Chatbot:', value=response, height=100, max_chars=None, key="chatbot_response")
             timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            # Append conversation log to CSV
-            try:
-                with open(chat_log_file, 'a', newline='', encoding='utf-8') as csvfile:
-                    csv_writer = csv.writer(csvfile)
-                    csv_writer.writerow([final_input, response, timestamp])
-                # Push updates to GitHub
-                push_to_git(chat_log_file, "Update chat log with new conversation")
-            except Exception as e:
-                st.error(f"Error logging conversation or pushing to Git: {e}")
+            # Update conversation history in session state
+            st.session_state["conversation"].append({
+                "user": final_input,
+                "bot": response,
+                "time": timestamp,
+            })
 
             # Display a goodbye message if the user says "goodbye"
             if final_input.lower() in ["goodbye", "bye"]:
@@ -137,12 +99,9 @@ def main():
 
     elif choice == 'Conversation History':
         st.header("Conversation History")
-        if os.path.exists(chat_log_file):
-            with open(chat_log_file, 'r', newline='', encoding='utf-8') as csvfile:
-                csv_reader = csv.reader(csvfile)
-                next(csv_reader)  # Skip header row
-                for row in csv_reader:
-                    st.write(f"**User**: {row[0]}\n**Chatbot**: {row[1]}\n*Time*: {row[2]}")
+        if st.session_state["conversation"]:
+            for entry in st.session_state["conversation"]:
+                st.write(f"**User**: {entry['user']}\n**Chatbot**: {entry['bot']}\n*Time*: {entry['time']}")
         else:
             st.write("No conversation history found.")
 
@@ -162,23 +121,8 @@ def main():
         st.header("Feedback")
         feedback = st.text_area("Please provide your feedback here:")
         if st.button("Submit Feedback"):
-            feedback_file = 'feedback.csv'
             if feedback:
-                timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                try:
-                    # Save feedback to a CSV file
-                    if not os.path.exists(feedback_file):
-                        with open(feedback_file, 'w', newline='', encoding='utf-8') as csvfile:
-                            csv_writer = csv.writer(csvfile)
-                            csv_writer.writerow(['Feedback', 'Timestamp'])
-                    with open(feedback_file, 'a', newline='', encoding='utf-8') as csvfile:
-                        csv_writer = csv.writer(csvfile)
-                        csv_writer.writerow([feedback, timestamp])
-                    # Push updates to GitHub
-                    push_to_git(feedback_file, "Update feedback with new entry")
-                    st.success("Thank you for your feedback!")
-                except Exception as e:
-                    st.error(f"Error saving feedback or pushing to Git: {e}")
+                st.success("Thank you for your feedback!")
             else:
                 st.error("Please enter your feedback before submitting.")
 
