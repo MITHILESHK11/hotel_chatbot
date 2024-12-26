@@ -7,8 +7,13 @@ import nltk
 import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from google.auth.transport.requests import Request
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+from google.auth.credentials import Credentials
+import base64
 from nltk.tokenize import word_tokenize
-
+from difflib import SequenceMatcher 
 # Ensure NLTK 'punkt' is downloaded only if not present
 try:
     nltk.data.find('tokenizers/punkt')
