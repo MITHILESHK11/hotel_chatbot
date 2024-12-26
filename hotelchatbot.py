@@ -112,7 +112,7 @@ def main():
         if st.button("Submit Feedback"):
             if feedback:
                 # Generate the mailto link
-                hotel_email = "hotel_feedback@example.com"  # Replace with actual hotel's email
+                hotel_email = "m.kolhapurkar3529@gmail.com"  # Replace with actual hotel's email
                 subject = "Feedback from Hotel Chatbot"
                 body = f"Feedback from user:\n\n{feedback}"
 
@@ -121,7 +121,7 @@ def main():
                 subject = subject.replace(" ", "%20")
 
                 # Construct the mailto link
-                mailto_link = f"mailto:{m.kolhapurkar3529@gmail.com}?subject={subject}&body={body}"
+                mailto_link = f"mailto:{hotel_email}?subject={subject}&body={body}"
 
                 # Display a clickable mailto link
                 st.markdown(f"[Click here to send feedback via email](mailto:{hotel_email}?subject={subject}&body={body})")
