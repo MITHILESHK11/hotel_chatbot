@@ -1,25 +1,20 @@
 import os
-import smtplib
-import streamlit as st
 import json
 import random
 import nltk
 import datetime
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from google.auth.transport.requests import Request
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
-from google.auth.credentials import Credentials
-import base64
+import streamlit as st
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 from nltk.tokenize import word_tokenize
-from difflib import SequenceMatcher 
+from difflib import SequenceMatcher
+
 # Ensure NLTK 'punkt' is downloaded only if not present
 try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
     nltk.download('punkt')
-    
+
 # Load intents from JSON file
 file_path = os.path.abspath('newintents.json')
 with open(file_path, 'r') as f:
@@ -28,35 +23,29 @@ with open(file_path, 'r') as f:
 # Extract all patterns for suggestions
 all_patterns = [pattern for intent in intents for pattern in intent['patterns']]
 
-# Similarity-based intent matching with better threshold and response handling
-def find_best_match(input_text, threshold=0.6):
-    best_match = None
-    highest_similarity = 0.0
+# Vectorize patterns using TF-IDF
+def vectorize_patterns(intents):
+    patterns = [pattern for intent in intents for pattern in intent['patterns']]
+    vectorizer = TfidfVectorizer()
+    pattern_vectors = vectorizer.fit_transform(patterns)
+    return vectorizer, pattern_vectors
 
-    for intent in intents:
-        for pattern in intent['patterns']:
-            similarity = SequenceMatcher(None, input_text.lower(), pattern.lower()).ratio()
-            if similarity > highest_similarity:
-                highest_similarity = similarity
-                best_match = intent
-
+# Similarity-based intent matching with cosine similarity
+def find_best_match(input_text, vectorizer, pattern_vectors, threshold=0.6):
+    input_vector = vectorizer.transform([input_text.lower()])
+    similarity_scores = cosine_similarity(input_vector, pattern_vectors)
+    highest_similarity = max(similarity_scores[0])
+    
     if highest_similarity >= threshold:
+        best_match_idx = similarity_scores[0].argmax()
+        best_match = intents[best_match_idx // len(intents[0]['patterns'])]
         return best_match
     return None
 
-# Chatbot logic with expanded matching
-def chatbot(input_text):
-    # Try direct matching first
-    input_words = word_tokenize(input_text.lower())
+# Chatbot logic with TF-IDF and cosine similarity
+def chatbot(input_text, vectorizer, pattern_vectors):
+    best_match = find_best_match(input_text, vectorizer, pattern_vectors)
     
-    for intent in intents:
-        for pattern in intent['patterns']:
-            pattern_words = word_tokenize(pattern.lower())
-            if set(pattern_words).issubset(set(input_words)):
-                return random.choice(intent['responses'])
-
-    # Use similarity matching as a fallback
-    best_match = find_best_match(input_text)
     if best_match:
         return random.choice(best_match['responses'])
 
@@ -71,20 +60,23 @@ def main():
     if "conversation" not in st.session_state:
         st.session_state["conversation"] = []
 
+    # Vectorize patterns during app startup
+    vectorizer, pattern_vectors = vectorize_patterns(intents)
+
     menu = ['Home', 'Conversation History', 'About']
     choice = st.sidebar.selectbox('Menu', menu)
 
     if choice == 'Home':
         st.write("Welcome to our Hotel Concierge Chatbot. How may I assist you today?")
-        
+
         suggestion = st.selectbox("Suggestions (optional):", ["Type your own"] + all_patterns)
-        
+
         user_input = st.text_input("You:")
 
         final_input = user_input or (suggestion if suggestion != "Type your own" else "")
 
         if final_input:
-            response = chatbot(final_input)
+            response = chatbot(final_input, vectorizer, pattern_vectors)
             st.text_area('Chatbot:', value=response, height=100, max_chars=None, key="chatbot_response")
             timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -106,7 +98,7 @@ def main():
         else:
             st.write("No conversation history found.")
 
-    elif choice == 'About':
+     elif choice == 'About':
         st.subheader("About the 5-Star Hotel Chatbot")
         st.write("""
         Welcome to the 5-Star Hotel Chatbot! This chatbot is designed to act as a virtual concierge for guests at a luxurious hotel. It aims to provide timely, efficient, and accurate assistance to guests, enhancing their experience throughout their stay.
