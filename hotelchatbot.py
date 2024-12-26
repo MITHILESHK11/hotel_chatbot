@@ -103,7 +103,32 @@ def main():
 
     elif choice == 'About':
         st.subheader("About the 5-Star Hotel Chatbot")
-        st.write("""This chatbot serves as a virtual concierge for a 5-star hotel, providing assistance with: ...""")
+        st.write("""
+        Welcome to the 5-Star Hotel Chatbot! This chatbot is designed to act as a virtual concierge for guests at a luxurious hotel. It aims to provide timely, efficient, and accurate assistance to guests, enhancing their experience throughout their stay.
+
+        The chatbot is capable of handling a wide range of inquiries, from room bookings and restaurant reservations to answering general questions about the hotel amenities and services. Whether you're looking to book a spa treatment, inquire about the hotel's history, or get recommendations for nearby attractions, the chatbot is here to help.
+
+        **Core Features:**
+        - **Room Booking**: The chatbot can assist in checking room availability, booking reservations, and modifying existing bookings.
+        - **Restaurant Reservations**: Guests can make dining reservations, explore restaurant menus, and request recommendations.
+        - **Hotel Services**: The chatbot provides information about various hotel services like housekeeping, laundry, room service, and concierge services.
+        - **Guest Support**: In case of any special requests or issues, the chatbot can quickly connect guests with the appropriate hotel staff.
+
+        **Technology Stack:**
+        - **Natural Language Processing (NLP)**: The chatbot uses NLP techniques to understand and respond to user queries. It leverages a variety of intent matching algorithms to provide accurate and relevant answers.
+        - **Machine Learning**: The chatbot's core intelligence is powered by machine learning models that continuously improve its ability to understand and respond to user inputs.
+        - **Streamlit**: The user interface is built using Streamlit, allowing for a seamless and interactive chat experience. Streamlit makes it easy to create beautiful and interactive data applications, perfect for our chatbot's use case.
+
+        **How It Works:**
+        The chatbot uses a combination of predefined intents and patterns to match user inputs and provide appropriate responses. If a direct match is not found, a similarity-based approach is used to find the closest match. The bot also supports feedback submission, which allows users to send feedback directly to the hotel via email.
+
+        **Why Use the Chatbot?**
+        - **24/7 Availability**: The chatbot is available at all times, providing immediate responses to guest queries, ensuring a hassle-free experience.
+        - **Efficiency**: By automating many tasks, the chatbot saves time for both guests and hotel staff, allowing for faster service and better resource management.
+        - **Personalized Service**: The chatbot tailors its responses to individual guest needs and preferences, making each interaction more personalized.
+        
+        We hope that you enjoy using the 5-Star Hotel Chatbot, and we are committed to continuously improving it to serve you better. If you have any feedback or suggestions, feel free to let us know!
+        """)
 
     elif choice == 'Feedback':
         st.header("Feedback")
@@ -112,7 +137,7 @@ def main():
         if st.button("Submit Feedback"):
             if feedback:
                 # Generate the mailto link
-                hotel_email = "m.kolhapurkar3529@gmail.com"  # Replace with actual hotel's email
+                hotel_email = "hotel_feedback@example.com"  # Replace with actual hotel's email
                 subject = "Feedback from Hotel Chatbot"
                 body = f"Feedback from user:\n\n{feedback}"
 
