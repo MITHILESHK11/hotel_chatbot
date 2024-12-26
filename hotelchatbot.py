@@ -11,7 +11,12 @@ from googleapiclient.discovery import build
 from google.auth.transport.requests import Request
 from nltk.tokenize import word_tokenize
 
-
+# Ensure NLTK 'punkt' is downloaded only if not present
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+    
 # Load intents from JSON file
 file_path = os.path.abspath('newintents.json')
 with open(file_path, 'r') as f:
