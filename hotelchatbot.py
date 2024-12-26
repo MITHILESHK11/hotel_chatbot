@@ -71,7 +71,7 @@ def main():
     if "conversation" not in st.session_state:
         st.session_state["conversation"] = []
 
-    menu = ['Home', 'Conversation History', 'About', 'Feedback']
+    menu = ['Home', 'Conversation History', 'About']
     choice = st.sidebar.selectbox('Menu', menu)
 
     if choice == 'Home':
@@ -134,31 +134,6 @@ def main():
         
         We hope that you enjoy using the 5-Star Hotel Chatbot, and we are committed to continuously improving it to serve you better. If you have any feedback or suggestions, feel free to let us know!
         """)
-
-    elif choice == 'Feedback':
-        st.header("Feedback")
-        feedback = st.text_area("Please provide your feedback here:")
-
-        if st.button("Submit Feedback"):
-            if feedback:
-                # Generate the mailto link
-                hotel_email = "hotel_feedback@example.com"  # Replace with actual hotel's email
-                subject = "Feedback from Hotel Chatbot"
-                body = f"Feedback from user:\n\n{feedback}"
-
-                # URL encode the feedback and subject to include in mailto
-                feedback = feedback.replace("\n", "%0A").replace(" ", "%20")
-                subject = subject.replace(" ", "%20")
-
-                # Construct the mailto link
-                mailto_link = f"mailto:{hotel_email}?subject={subject}&body={body}"
-
-                # Display a clickable mailto link
-                st.markdown(f"[Click here to send feedback via email](mailto:{hotel_email}?subject={subject}&body={body})")
-                st.success("Thank you for your feedback! You can now send it via your email client.")
-
-            else:
-                st.error("Please provide feedback before submitting.")
 
 if __name__ == "__main__":
     main()
