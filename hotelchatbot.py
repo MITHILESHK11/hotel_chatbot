@@ -4,6 +4,8 @@ import random
 import nltk
 import datetime
 import streamlit as st
+import sklearn
+import difflib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from nltk.tokenize import word_tokenize
