@@ -1,17 +1,14 @@
-import json
 import os
+import smtplib
 import streamlit as st
-import datetime
-import nltk
-from nltk.tokenize import word_tokenize
-from difflib import SequenceMatcher
+import json
 import random
-
-# Ensure NLTK 'punkt' is downloaded only if not present
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
+import datetime
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+from google.auth.transport.requests import Request
 
 # Load intents from JSON file
 file_path = os.path.abspath('newintents.json')
@@ -55,13 +52,52 @@ def chatbot(input_text):
 
     return "I'm sorry, I didn't understand that. Can you please rephrase?"
 
+# Send email using Gmail API
+def send_feedback_email(user_email, feedback):
+    """Send feedback email using Gmail API after user OAuth authentication."""
+    SCOPES = ['https://www.googleapis.com/auth/gmail.send']
+
+    creds = None
+    token_path = 'token.json'  # Token file to store user credentials
+    credentials_path = 'credentials.json'  # Path to OAuth2 credentials file
+
+    # Check if the token file exists
+    if os.path.exists(token_path):
+        creds = Credentials.from_authorized_user_file(token_path, SCOPES)
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file(credentials_path, SCOPES)
+            creds = flow.run_local_server(port=0)
+        
+        with open(token_path, 'w') as token:
+            token.write(creds.to_json())
+    
+    try:
+        # Create a message to send
+        message = MIMEMultipart()
+        message['To'] = "hotel_feedback@example.com"  # Replace with hotel email
+        message['From'] = user_email
+        message['Subject'] = "Feedback from Hotel Chatbot"
+        body = f"Feedback from user:\n\n{feedback}"
+        message.attach(MIMEText(body, 'plain'))
+        
+        # Send the email via Gmail API
+        service = build('gmail', 'v1', credentials=creds)
+        raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode('utf-8')
+        message = service.users().messages().send(userId="me", body={'raw': raw_message}).execute()
+        return True
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return False
+
 # Streamlit app
 def main():
     st.set_page_config(page_title="5-Star Hotel Chatbot", page_icon="🏨", layout="wide")
     st.title("5-Star Hotel Chatbot")
-    st.image("start5hotel.jpg", width=200)  # Replace with your image path
+    st.image("start5hotel.jpg", width=200)
 
-    # Initialize session state for conversation history
     if "conversation" not in st.session_state:
         st.session_state["conversation"] = []
 
@@ -71,13 +107,10 @@ def main():
     if choice == 'Home':
         st.write("Welcome to our Hotel Concierge Chatbot. How may I assist you today?")
         
-        # Suggest questions to the user
         suggestion = st.selectbox("Suggestions (optional):", ["Type your own"] + all_patterns)
         
-        # Allow free text input
         user_input = st.text_input("You:")
 
-        # Use the suggestion if no free text is entered
         final_input = user_input or (suggestion if suggestion != "Type your own" else "")
 
         if final_input:
@@ -85,14 +118,12 @@ def main():
             st.text_area('Chatbot:', value=response, height=100, max_chars=None, key="chatbot_response")
             timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            # Update conversation history in session state
             st.session_state["conversation"].append({
                 "user": final_input,
                 "bot": response,
                 "time": timestamp,
             })
 
-            # Display a goodbye message if the user says "goodbye"
             if final_input.lower() in ["goodbye", "bye"]:
                 st.write("Thank you for chatting with me! Have a wonderful stay!")
                 st.stop()
@@ -107,24 +138,25 @@ def main():
 
     elif choice == 'About':
         st.subheader("About the 5-Star Hotel Chatbot")
-        st.write("""
-        This chatbot serves as a virtual concierge for a 5-star hotel, providing assistance with:
-        - Room service orders
-        - Special requests
-        - Information about hotel amenities and services
-        - General inquiries and more
-
-        Built with NLP and enhanced pattern matching, this chatbot ensures a seamless guest experience.
-        """)
+        st.write("""This chatbot serves as a virtual concierge for a 5-star hotel, providing assistance with: ...""")
 
     elif choice == 'Feedback':
         st.header("Feedback")
         feedback = st.text_area("Please provide your feedback here:")
+
+        # Input fields for user email
+        user_email = st.text_input("Your Email Address:")
+        
         if st.button("Submit Feedback"):
-            if feedback:
-                st.success("Thank you for your feedback!")
+            if feedback and user_email:
+                # Send the feedback via Gmail API using OAuth2 authentication
+                success = send_feedback_email(user_email, feedback)
+                if success:
+                    st.success("Thank you for your feedback! We will review it shortly.")
+                else:
+                    st.error("There was an error sending your feedback. Please try again.")
             else:
-                st.error("Please enter your feedback before submitting.")
+                st.error("Please fill in all the fields before submitting.")
 
 if __name__ == "__main__":
     main()
