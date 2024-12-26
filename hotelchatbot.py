@@ -5,19 +5,22 @@ import json
 import random
 import nltk
 import datetime
+import difflib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
-from google.auth.transport.requests import Request
+from google.auth.credentials import Credentials
 from nltk.tokenize import word_tokenize
+from difflib import SequenceMatcher
 
 # Ensure NLTK 'punkt' is downloaded only if not present
 try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
     nltk.download('punkt')
-    
+
 # Load intents from JSON file
 file_path = os.path.abspath('newintents.json')
 with open(file_path, 'r') as f:
@@ -46,7 +49,7 @@ def find_best_match(input_text, threshold=0.6):
 def chatbot(input_text):
     # Try direct matching first
     input_words = word_tokenize(input_text.lower())
-    
+
     for intent in intents:
         for pattern in intent['patterns']:
             pattern_words = word_tokenize(pattern.lower())
