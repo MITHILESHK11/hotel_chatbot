@@ -122,16 +122,45 @@ def main():
             st.write("No conversation history found.")
 
     elif choice == 'About':
-        st.subheader("About the 5-Star Hotel Chatbot")
-        st.write("""
-        This chatbot serves as a virtual concierge for a 5-star hotel, providing assistance with:
-        - Room service orders
-        - Special requests
-        - Information about hotel amenities and services
-        - General inquiries and more
+    st.subheader("About the 5-Star Hotel Chatbot")
+    st.write("""
+    The **5-Star Hotel Chatbot** is a state-of-the-art virtual concierge designed to enhance the guest experience by providing quick, efficient, and personalized assistance throughout their stay at the hotel. Built with Natural Language Processing (NLP) and advanced pattern matching, the chatbot ensures a seamless interaction, offering a range of services to cater to every guest's needs. 
 
-        Built with NLP and enhanced pattern matching, this chatbot ensures a seamless guest experience.
-        """)
+    Here’s a deeper look at its key features:
+
+    - **Room Service Orders**: 
+      The chatbot allows guests to place food and beverage orders directly through the interface, without the need to call the front desk or room service. Guests can easily view menus, place their orders, and even customize their requests. This feature saves time and ensures that guests' dining preferences are met with minimal effort.
+
+    - **Special Requests**: 
+      Whether it's an extra pillow, room cleaning, or special arrangements for an event, the chatbot can manage guest requests instantly. The system ensures that requests are logged and sent to the appropriate department, minimizing the chances of any missed or delayed requests.
+
+    - **Hotel Amenities and Services Information**: 
+      Guests can ask about hotel services and amenities, such as gym hours, spa services, pool availability, and restaurant timings. The chatbot provides accurate and up-to-date information to help guests make the most of their stay, from booking spa appointments to learning about upcoming events or activities at the hotel.
+
+    - **General Inquiries**: 
+      The chatbot can also answer a wide range of general inquiries, such as information about local attractions, directions to popular tourist spots, transportation options, hotel policies (e.g., pet policy, check-out times), and more. This feature ensures guests have easy access to all the necessary information during their stay, enhancing convenience and satisfaction.
+
+    - **Personalized Guest Experience**: 
+      By using NLP, the chatbot understands natural language inputs and adapts its responses accordingly, providing a more personalized interaction. It can remember guest preferences from previous conversations, allowing for tailored recommendations and a more seamless experience with the hotel’s services.
+
+    - **Conversation History**: 
+      All interactions with the chatbot are logged and stored, providing a record of past conversations. This helps the hotel staff to follow up on requests, track guest preferences, and resolve any issues promptly. Guests can also revisit their previous conversations for reference.
+
+    - **24/7 Availability**: 
+      The chatbot is available around the clock, ensuring guests can get assistance at any time, day or night. Whether it’s a late-night snack request or an early morning inquiry, the chatbot is always ready to help, offering guests the convenience of on-demand assistance without having to wait for a staff member.
+
+    - **Seamless Integration with Hotel Operations**: 
+      The chatbot is fully integrated into the hotel’s operational systems, allowing it to forward requests directly to the relevant departments (e.g., housekeeping, room service, front desk). This ensures that requests are handled promptly and accurately, minimizing delays and improving overall efficiency.
+
+    - **Enhanced Guest Satisfaction**: 
+      With quick response times, personalized recommendations, and easy access to hotel services, the chatbot enhances guest satisfaction. Guests can focus on enjoying their stay, knowing that their needs are being taken care of efficiently.
+
+    - **Multilingual Support** (Future Expansion): 
+      To cater to international guests, there are plans to add multilingual support, allowing the chatbot to understand and respond in multiple languages, further improving the guest experience.
+
+    The 5-Star Hotel Chatbot is not just a tool for answering questions; it’s a comprehensive service assistant that works tirelessly to ensure every guest has a memorable and hassle-free experience. Its intelligent, proactive approach to managing guest needs sets a new standard in hospitality service.
+    """)
+
 
 if __name__ == "__main__":
     main()
