@@ -72,7 +72,7 @@ counter = 0
 # Streamlit app
 def main():
     global counter
-    st.title("5-Star Hotel Chatbot")
+    st.title("Hotel Chatbot")
 
     menu = ['Home', 'Conversation History', 'About']
     choice = st.sidebar.selectbox('Menu', menu)
@@ -122,9 +122,9 @@ def main():
             st.write("No conversation history found.")
 
     elif choice == 'About':
-        st.subheader("About the 5-Star Hotel Chatbot")
+        st.subheader("About the Hotel Chatbot")
         st.write("""
-        The **5-Star Hotel Chatbot** is a state-of-the-art virtual concierge designed to enhance the guest experience by providing quick, efficient, and personalized assistance throughout their stay at the hotel. Built with Natural Language Processing (NLP) and advanced pattern matching, the chatbot ensures a seamless interaction, offering a range of services to cater to every guest's needs. 
+        The **Hotel Chatbot** is a state-of-the-art virtual concierge designed to enhance the guest experience by providing quick, efficient, and personalized assistance throughout their stay at the hotel. Built with Natural Language Processing (NLP) and advanced pattern matching, the chatbot ensures a seamless interaction, offering a range of services to cater to every guest's needs. 
         
         Here’s a deeper look at its key features:
         
@@ -155,7 +155,7 @@ def main():
         - **Enhanced Guest Satisfaction**: 
         With quick response times, personalized recommendations, and easy access to hotel services, the chatbot enhances guest satisfaction. Guests can focus on enjoying their stay, knowing that their needs are being taken care of efficiently.
         
-        The 5-Star Hotel Chatbot is not just a tool for answering questions; it’s a comprehensive service assistant that works tirelessly to ensure every guest has a memorable and hassle-free experience. Its intelligent, proactive approach to managing guest needs sets a new standard in hospitality service.
+        The Hotel Chatbot is not just a tool for answering questions; it’s a comprehensive service assistant that works tirelessly to ensure every guest has a memorable and hassle-free experience. Its intelligent, proactive approach to managing guest needs sets a new standard in hospitality service.
     """)
 
 
