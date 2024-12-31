@@ -78,7 +78,7 @@ def main():
     choice = st.sidebar.selectbox('Menu', menu)
 
     if choice == 'Home':
-        st.write("Welcome to our Hotel Concierge Chatbot. How may I assist you today?")
+        st.write("Welcome to our Hotel Chatbot. How may I assist you today?")
 
         if not os.path.exists('chat_log.csv'):
             with open('chat_log.csv', 'w', newline='', encoding='utf-8') as csvfile:
