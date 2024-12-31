@@ -1,6 +1,6 @@
-# 5-Star Hotel Chatbot
+# Hotel Chatbot
 
-This project is a chatbot designed for a 5-star hotel concierge, providing users with assistance for room service orders, special requests, hotel amenities information, and general inquiries. It uses natural language processing (NLP) techniques for intent recognition and matching, ensuring a seamless guest experience.
+This project is a chatbot designed for a  hotel, providing users with assistance for room service orders, special requests, hotel amenities information, and general inquiries. It uses natural language processing (NLP) techniques for intent recognition and matching, ensuring a seamless guest experience.
 
 ## Features
 
@@ -25,8 +25,8 @@ Make sure you have the following installed:
 1. Clone this repository:
 
     ```bash
-    git clone https://github.com/yourusername/5-star-hotel-chatbot.git
-    cd 5-star-hotel-chatbot
+    git clone https://github.com/yourusername/hotel-chatbot.git
+    cd hotel-chatbot
     ```
 
 2. Install the required dependencies:
@@ -58,9 +58,9 @@ The chatbot uses Natural Language Processing (NLP) and pattern matching techniqu
 2. **Suggestions**: The chatbot provides suggestions based on common user queries to improve interaction.
 3. **Chat Log**: Conversations are logged in a CSV file for review and analysis.
 
-## About the 5-Star Hotel Chatbot
+## About the Hotel Chatbot
 
-The 5-Star Hotel Chatbot serves as a virtual concierge, enabling guests to interact with hotel services through a conversational interface. The chatbot is designed to handle a wide range of tasks, including:
+The Hotel Chatbot serves as a virtual concierge, enabling guests to interact with hotel services through a conversational interface. The chatbot is designed to handle a wide range of tasks, including:
 
 - **Room Service Orders**: The chatbot can help guests place orders for food and beverages.
 - **Special Requests**: Guests can make special requests, such as extra pillows, room cleaning, or other amenities.
